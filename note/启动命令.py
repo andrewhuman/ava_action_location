@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=2 python trainmyrcnn.py

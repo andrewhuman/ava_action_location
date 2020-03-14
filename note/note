@@ -1,0 +1,29 @@
+输入： C,L, H, W；[batch, 3, 16, 240, 320]
+tensorflow :input shape : HWC
+rpn_cls_score size  anchor w  h = torch.Size([1, 60, 15, 20])
+
+gt_boxes:[x1,y1,x2,y2,label],左上角坐标，右下角坐标,label
+生成的box 也一样
+
+ANCHOR_RATIOS = [1,2]# first  [0.6,1,1,4,1.75,2.1] = height / width
+
+
+if gt_boxes 为[0,0,0,0,0]  overlaps会置位0，anchor若为0，overlap置位-1
+
+maybe your x,y coordinates has -1
+
+8个anchor，fill 0 is ok
+
+8个 anchor person，every ball
+
+
+
+im_info[0][1] width
+im_info[0][0] heifht
+im_info[0][2] scale,输入图片与原图片的比例.
+
+输入图片:width 320,height 240  opencv出来是HWC,BGR,输入时CLHW,RGB
+
+
+!!!!!!! very important,origin anno ,one tube if conrrecd one action,two tube,maybe same.
+
